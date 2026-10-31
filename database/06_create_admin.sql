@@ -1,0 +1,11 @@
+UPDATE APP_USERS
+SET
+    ROLE_ID = (
+        SELECT ROLE_ID
+        FROM APP_ROLES
+        WHERE ROLE_NAME = 'ADMIN'
+    ),
+    ACCOUNT_STATUS = 'APPROVED'
+WHERE EMAIL = LOWER('ai.manish@gmail.com');
+
+COMMIT;
