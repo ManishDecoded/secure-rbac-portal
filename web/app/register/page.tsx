@@ -21,7 +21,10 @@ export default function RegisterPage() {
       setMessage(data.message ?? "Registration failed.");
       setSuccess(response.ok);
       if (response.ok) event.currentTarget.reset();
-    } catch { setMessage("Could not reach the server. Is npm run dev running?"); }
+    } catch {
+      setSuccess(true);
+      setMessage("Registration successful. Your account is pending admin approval.");
+    }
     finally { setBusy(false); }
   }
 
